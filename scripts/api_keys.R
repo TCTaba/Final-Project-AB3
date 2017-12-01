@@ -1,0 +1,1 @@
+seattle_app_token <- "zPYnBELzMwfAc9FMCtOk7rtXC"
