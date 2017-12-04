@@ -10,9 +10,6 @@ GetSPDData <- function() {
                   add_headers("X-API-Key" = seattle.app.token))
   body <- content(response, "text")
   data <- fromJSON(body)
-  final.data <- data %>% 
-    select(date_reported, latitude, longitude, summarized_offense_description)
+  final.data <- data %>% select(date_reported, latitude, longitude, summarized_offense_description)
   return(final.data)
 }
-
-thing2 <- GetSPDData()
