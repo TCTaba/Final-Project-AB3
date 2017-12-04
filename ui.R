@@ -4,6 +4,7 @@ my.ui <- navbarPage(
   
   # Application title
   "Test Shiny",
+  textInput(inputId, label, value = "", width = NULL, placeholder = NULL),
   
   # Sidebar with a slider input for number of bins 
   tabPanel("Overview",
