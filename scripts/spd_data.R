@@ -3,8 +3,7 @@ library(jsonlite)
 library(dplyr)
 library(plotly)
 
-setwd('/Users/nsundaresan/Google Drive/College/Autumn 2017/INFO 201/Final-Project-AB3')
-source('scripts/api_keys.R')
+source('./scripts/api_keys.R')
 
 GetSPDData <- function() {
   response <- GET("https://data.seattle.gov/resource/y7pv-r3kh.json?$limit=5000&$order=date_reported%20DESC", 
@@ -37,10 +36,9 @@ fel.data <- full.data %>%
 PlotData <- function(df) {
   p <- df %>%
     plot_mapbox(lat = ~latitude, lon = ~longitude,
-                split = ~summarized_offense_description, size=0.1,
+                split = ~summarized_offense_description,
                 mode = 'scattermapbox', hoverinfo=~date_reported) %>%
-    layout(title = 'Crimes in Seattle',
-           font = list(color='white'),
+    layout(font = list(color='white'),
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            mapbox = list(style = 'dark',
                          zoom = 10.0,
@@ -54,8 +52,6 @@ PlotData <- function(df) {
   
   return(p)
 }
-
-
 
 
 
