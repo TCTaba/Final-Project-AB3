@@ -5,7 +5,7 @@ library(XML)
 source('api_keys.R')
 
 # Find data for specific house, need the address, city, state, and zipcode to search API
-findHouseData <- function(my.address, my.citystatezip){
+FindHouseData <- function(my.address, my.citystatezip){
   # Access Zillow DeepSearchResults API
   url.full <- 'https://www.zillow.com/webservice/GetDeepSearchResults.htm'
   query.params <- list('zws-id' = zillow.api.key, address = my.address, citystatezip = my.citystatezip)
@@ -25,12 +25,3 @@ findHouseData <- function(my.address, my.citystatezip){
                            long = results$response$results$result$address$longitude)
   return(house.data)
 }
-
-house.data <- findHouseData('356 Galer St', 'Seattle, WA 98109')
-
-
-# url.full.2 <- 'http://www.zillow.com/webservice/GetDeepComps.htm'
-# query.params.2 <- list('zws-id' = zillow.api.key, zpid = results$response$results$result$zpid, count = 25)
-# response.2 <- GET(url.full, query = query.params)
-# body.2 <- content(response, 'text')
-# results.2 <- xmlToList(body)
