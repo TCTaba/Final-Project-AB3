@@ -25,7 +25,8 @@ my.ui <- navbarPage(
              sidebarPanel(
                selectInput("neighborhood.var",
                            "Neighborhood",
-                           choices = parsed.regions[1]),
+                           choices = parsed.regions[1],
+                           selected = "University District"),
                selectInput("type.var",
                            "Type of Crime",
                            choices = list("Misdemeanor" = "mis",
@@ -37,10 +38,36 @@ my.ui <- navbarPage(
              
              # Show a plot of the generated distribution
              mainPanel(
-               plotlyOutput("crimePlot")
+               plotlyOutput("neighborhoodPlot")
+             )
+           )
+  ),
+  
+  tabPanel("Address",
+           sidebarLayout(
+             sidebarPanel(
+               textInput("street.var",
+                           h3("Street"),
+                           value = "Ex. 315 Howe St"),
+               textInput("csz.var",
+                           h3("City, State, and Zip Code"),
+                           value = "Ex. Seattle, WA 98109"),
+               selectInput("type.var",
+                           "Type of Crime",
+                           choices = list("Misdemeanor" = "mis",
+                                          "Felony" = "fel",
+                                          "Both" = "both"))
+             ),
+             
+             
+             
+             # Show a plot of the generated distribution
+             mainPanel(
+               plotlyOutput("addressPlot")
              )
            )
   )
+  
 )
 # Define UI for application that draws a histogram
 shinyUI(my.ui)
