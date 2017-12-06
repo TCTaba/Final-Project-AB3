@@ -48,10 +48,10 @@ my.ui <- navbarPage(
              sidebarPanel(
                textInput("street.var",
                            h3("Street"),
-                           value = "Ex. 315 Howe St"),
+                           placeholder = "Ex. 315 Howe St"),
                textInput("csz.var",
                            h3("City, State, and Zip Code"),
-                           value = "Ex. Seattle, WA 98109"),
+                           placeholder = "Ex. Seattle, WA 98109"),
                selectInput("type.var",
                            "Type of Crime",
                            choices = list("Misdemeanor" = "mis",
