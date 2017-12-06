@@ -13,20 +13,27 @@ library(plotly)
 source("./scripts/spd_data.R")
 source("./scripts/api_keys.R")
 source("./scripts/zillow_data.R")
+source("./scripts/neighborhoods.R")
 
 my.ui <- navbarPage(
   
   # Application title
   "Crime vs House Prices",
   
-  tabPanel("Scatterplot",
+  tabPanel("Neighborhoods",
            sidebarLayout(
              sidebarPanel(
-               selectInput("check.var",
+               selectInput("neighborhood.var",
+                           "Neighborhood",
+                           choices = parsed.regions[1]),
+               selectInput("type.var",
                            "Type of Crime",
                            choices = list("Misdemeanor" = "mis",
                                           "Felony" = "fel",
-                                          "Both" = "both"))),
+                                          "Both" = "both"))
+               ),
+             
+  
              
              # Show a plot of the generated distribution
              mainPanel(
