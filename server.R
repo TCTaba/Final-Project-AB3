@@ -26,19 +26,17 @@ shinyServer(function(input, output) {
     } else {
       PlotDataNeighborhood(full.data, input$neighborhood.var)
     }
-    
-    
   })
-  output$addressPlot <- renderPlotly({
-    
-    if(input$type.var == "mis") {
-      PlotDataAddress(mis.data, input$street.var, input$csz.var)
-    } else if (input$type.var == "fel") {
-      PlotDataAddress(fel.data, input$street.var, input$csz.var)
+ 
+   output$addressPlot <- renderPlotly({
+     
+    input$goButton
+    if(input$check.var == "mis") {
+      PlotDataAddress(mis.data, isolate(input$street.var), isolate(input$csz.var))
+    } else if (input$check.var == "fel") {
+      PlotDataAddress(fel.data, isolate(input$street.var), isolate(input$csz.var))
     } else {
-      PlotDataAddress(full.data, input$street.var, input$csz.var)
+      PlotDataAddress(full.data, isolate(input$street.var), isolate(input$csz.var))
     }
-    
-    
   })
 })
