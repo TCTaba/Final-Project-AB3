@@ -34,6 +34,7 @@ PlotDataNeighborhood <- function(df, neighborhood) {
                 mode = 'scattermapbox', hoverinfo=~date_reported) %>%
     layout(font = list(color='white'),
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
+           autosize = TRUE, 
            mapbox = list(style = 'dark',
                          zoom = 12,
                          center = list(lat = location$Latitude,
