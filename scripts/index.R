@@ -12,6 +12,7 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
                 split = ~summarized_offense_description,
                 mode = 'scattermapbox', hoverinfo=~date_reported) %>%
     layout(font = list(color='white'),
+           autosize=TRUE,
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            mapbox = list(style = 'dark',
                          zoom = 15,
@@ -32,9 +33,10 @@ PlotDataNeighborhood <- function(df, neighborhood) {
                 split = ~summarized_offense_description,
                 mode = 'scattermapbox', hoverinfo=~date_reported) %>%
     layout(font = list(color='white'),
+           autosize=TRUE,
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            mapbox = list(style = 'dark',
-                         zoom = 13,
+                         zoom = 12,
                          center = list(lat = location$Latitude,
                                        lon = location$Longitude)),
            legend = list(orientation = 'v',
