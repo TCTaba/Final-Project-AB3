@@ -91,7 +91,7 @@ my.ui <- navbarPage(theme = "styles.css",
                   
                   
           ),
-       plotlyOutput("neighborhoodPlot", height = "1000px"), padding = 0
+       plotlyOutput("neighborhoodPlot", height = "100%"), padding = 0
        )
   ),
   
@@ -114,7 +114,7 @@ my.ui <- navbarPage(theme = "styles.css",
                                      "Both" = "both"),
                       width = "150px")   
         ), 
-     plotlyOutput("addressPlot", height = "1000px"), padding = 0
+     plotlyOutput("addressPlot", height = "100%"), padding = 0
      )
    )
 )
