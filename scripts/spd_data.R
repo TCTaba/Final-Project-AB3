@@ -1,8 +1,6 @@
 library(httr)
 library(jsonlite)
 library(dplyr)
-library(plotly)
-library(RColorBrewer)
 
 source('./scripts/api_keys.R')
 

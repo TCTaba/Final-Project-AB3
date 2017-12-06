@@ -2,7 +2,7 @@ library(jsonlite)
 library(httr)
 library(XML)
 
-source('api_keys.R')
+source('./scripts/api_keys.R')
 
 # Find data for specific house, need the address, city, state, and zipcode to search API
 FindHouseData <- function(my.address, my.citystatezip){
