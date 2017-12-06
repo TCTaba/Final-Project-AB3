@@ -18,6 +18,7 @@ body {
   margin-top: 0px;
   text-align: center;
 }
+
 .navbar-default {
   border-color: #181919;
 }
@@ -58,14 +59,19 @@ body {
   top: 80px;
   left: 0;
   z-index: 1;
-  background-color: black;
+  background-color: #171818;
   width: 275px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
 .container-fluid, .tab-pane, .tab-content{
   height: 100%;
   overflow: auto;
+}
+
+.type:hover {
+  color: white;
 }

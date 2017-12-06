@@ -1,12 +1,3 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
-
 library(shiny)
 library(plotly)
 
@@ -21,8 +12,8 @@ my.ui <- navbarPage(theme = "styles.css",
   "Seattle Housing and Crime",
   
    tabPanel("Summary Info",
-     tags$p(id = "main-title", 'A' , strong('SAFER'), 'HOME'),
-     tags$p(id = "main-descrip", 'This application provides an interactive tool that 
+     tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
+     tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
              maps homes for sale in the Seattle area, and all police report incidents 
              that have occurred in the city of Seattle in the last three months. 
              The purpose of this project is to create a visual representation of 
@@ -32,7 +23,7 @@ my.ui <- navbarPage(theme = "styles.css",
              representation of crime in an area, but we hope that this application 
              will help homebuyers gain a better understanding of the current safety 
              surrounding their future home.'),
-     fluidRow(
+     fluidRow(width = "100%",
        column(3, 
          wellPanel(
            tags$h1('INTENDED USE'),
@@ -119,5 +110,4 @@ my.ui <- navbarPage(theme = "styles.css",
    )
 )
 
-# Define UI for application that draws a histogram
 shinyUI(my.ui)
