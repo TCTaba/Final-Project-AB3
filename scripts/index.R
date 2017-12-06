@@ -8,6 +8,7 @@ source('./scripts/neighborhoods.R')
 
 PlotDataAddress <- function(df, address_street, address_CSZ) {
   house.data <- FindHouseData(address_street, address_CSZ)
+  house.info <- sprintf("Address: %s", house.data$address[1])
   p <- plot_mapbox(mode = 'scattermapbox') %>%
     layout(font = list(color='white'), autosize = TRUE,
          plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
@@ -22,10 +23,8 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
                        pad = 0))%>%
     add_markers(data = df, x = ~longitude, y = ~latitude, text=~summarized_offense_description,
                 hoverinfo = "text", colors=~summarized_offense_description, split=~summarized_offense_description) %>%
-    add_markers(data = house.data, x = ~long, y = ~lat, 
-                text = sprintf("Address: %s,\nPrice: %s,\nBed: %s,\nBath: %s,\nSquare Feet: %s,\n", house.data$address, 
-                               house.data$price, house.data$bed, house.data$bath, house.data$sqft),
-                hoverinfo = "text", marker = list(size="6"))
+    add_markers(data = house.data, x = ~long, y = ~lat, text = house.info, hoverinfo = "text", 
+                split = ~address, marker = list(size="6"))
   
   return(p)
 }
@@ -40,7 +39,7 @@ PlotDataNeighborhood <- function(df, neighborhood) {
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            autosize = TRUE, 
            mapbox = list(style = 'dark',
-                         zoom = 12,
+                         zoom = 13.5,
                          center = list(lat = location$Latitude,
                                        lon = location$Longitude)),
            legend = list(orientation = 'v',
@@ -51,6 +50,3 @@ PlotDataNeighborhood <- function(df, neighborhood) {
 
   return(p)
 }
-
-PlotDataAddress(full.data, '315 Howe Street', 'Seattle WA, 98109')
-#PlotDataNeighborhood(full.data, "University District")

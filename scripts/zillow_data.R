@@ -25,3 +25,10 @@ FindHouseData <- function(my.address, my.citystatezip){
                            long = results$response$results$result$address$longitude)
   return(house.data)
 }
+
+house.data <- FindHouseData('315 Howe St', 'Seattle WA, 98109')
+house.info <- sprintf("Address: %s,Price: %s,Bath: %s,Bed: %s,Year: %s,Sq.ft.: %s",
+                      house.data$address[1], house.data$price[1], house.data$bath[1], house.data$bed[1], 
+                      house.data$year[1], house.data$sqft[1])
+
+print(house.info)
