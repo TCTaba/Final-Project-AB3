@@ -33,7 +33,6 @@ PlotDataNeighborhood <- function(df, neighborhood) {
                 split = ~summarized_offense_description,
                 mode = 'scattermapbox', hoverinfo=~date_reported) %>%
     layout(font = list(color='white'),
-           autosize=TRUE,
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            mapbox = list(style = 'dark',
                          zoom = 12,
