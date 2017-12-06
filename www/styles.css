@@ -78,3 +78,7 @@ body {
   padding-right: 25px;
   padding-left: 25px;
 }
+
+ol {
+  list-style-position: outside;
+}
