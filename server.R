@@ -32,11 +32,11 @@ shinyServer(function(input, output) {
   output$addressPlot <- renderPlotly({
     
     if(input$type.var == "mis") {
-      PlotDataNeighborhood(mis.data, input$street.var, input$csz.var)
+      PlotDataAddress(mis.data, input$street.var, input$csz.var)
     } else if (input$type.var == "fel") {
-      PlotDataNeighborhood(fel.data, input$street.var, input$csz.var)
+      PlotDataAddress(fel.data, input$street.var, input$csz.var)
     } else {
-      PlotDataNeighborhood(full.data, input$street.var, input$csz.var)
+      PlotDataAddress(full.data, input$street.var, input$csz.var)
     }
     
     
