@@ -11,7 +11,7 @@ library(shiny)
 library(dplyr)
 library(tidyr)
 
-source("./scripts/spd_data.R")
+source("./scripts/index.R")
 source("./scripts/api_keys.R")
 source("./scripts/zillow_data.R")
 
@@ -19,9 +19,9 @@ source("./scripts/zillow_data.R")
 shinyServer(function(input, output) {
   output$crimePlot <- renderPlotly({
     
-    if(input$check.var == "mis") {
+    if(input$type.var == "mis") {
       PlotData(mis.data)
-    } else if (input$check.var == "fel") {
+    } else if (input$type.var == "fel") {
       PlotData(fel.data)
     } else {
       PlotData(full.data)
