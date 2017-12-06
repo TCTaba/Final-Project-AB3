@@ -24,7 +24,7 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
     add_markers(data = df, x = ~longitude, y = ~latitude, text=~summarized_offense_description,
                 hoverinfo = "text", split=~summarized_offense_description) %>%
     add_markers(data = house.data, x = ~long, y = ~lat, text = house.info, hoverinfo = "text", 
-                split = ~address, marker = list(size="6"))
+                split = ~address)
   
   return(p)
 }

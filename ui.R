@@ -11,7 +11,7 @@ my.ui <- navbarPage(theme = "styles.css",
   # Application title
   "Seattle Housing and Crime",
   
-   tabPanel("Summary Info",
+   tabPanel("About",
      tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
      tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
              maps homes for sale in the Seattle area, and all police report incidents 
@@ -107,7 +107,82 @@ my.ui <- navbarPage(theme = "styles.css",
         ), 
      plotlyOutput("addressPlot", height = "100%"), padding = 0
      )
-   )
+   ),
+  
+  tabPanel("Learn More",
+    tags$p('Here you will find a comprehensive list of the types of crimes that are listed in the map.'),
+    tags$br(),
+    tags$h3('Misdemeanors:'),
+    tags$p('Animal Complaint:'),
+    tags$p('Assault:'),
+    tags$p('Bike Theft:'),
+    tags$p('Car Prowl:'),
+    tags$p('Counterfeit:'),
+    tags$p('Disorderly Conduct:'),
+    tags$p('Dispute:'),
+    tags$p('DUI (Driving Under the Influence):'),
+    tags$p('Firework:'),
+    tags$p('Injury:'),
+    tags$p('Obstruct:'),
+    tags$p('Other Property:'),
+    tags$p('Pickpocket:'),
+    tags$p('Property Damage:'),
+    tags$p('Prostitution:'),
+    tags$p('Recovered Property:'),
+    tags$p('Stolen Property:'),
+    tags$p('Theft of Service:'),
+    tags$p('Threats:'),
+    tags$p('Traffic:'),
+    tags$p('Trespass:'),
+    tags$br(),
+    tags$h3('Felonies:'),
+    tags$p('Burglary:'),
+    tags$p('Burglary-secure parking-res:'),
+    tags$p('Eluding:'),
+    tags$p('Embezzle:'),
+    tags$p('Forgery:'),
+    tags$p('Fraud:'),
+    tags$p('Homicide:'),
+    tags$p('Mail Theft:'),
+    tags$p('Narcotics:'),
+    tags$p('Pornography:'),
+    tags$p('Reckless Burning:'),
+    tags$p('Robbery:'),
+    tags$p('Shoplifting:'),
+    tags$p('Stolen Property (more valuable items):'),
+    tags$p('Vehicle Theft:'),
+    tags$p('Violation of Court Order:'),
+    tags$p('Warrant Arrest:'),
+    tags$p('Lost Property:')
+  ),
+  tabPanel("Questions?",
+    tags$p('For information about each type of crime, visit the "Learn More" tab.'),
+    tags$br(),
+    tags$br(),
+    tags$h3('Neighborhood Tab'),
+    tags$p('This tab is indended for users who would like to see incidence information for a general area of Seattle.
+           If you would like to look into a particular address, please check out the "Address" tab'),
+    tags$p('For looking at information about a particular neighborhood in Seattle, follow these steps:'),
+    tags$ol(
+      tags$li('Select neighborhood from options on the top left side'),
+      tags$li('Select whether you would like to view just misdemeanors, just felonies, or both for the selected neighborhood'),
+      tags$li('From here the map should display the selected neighborhood with the selected type of data you want. You can zoom
+              in and out however you like from here.')
+    ),
+    tags$br(),
+    tags$h3('Address Tab'),
+    tags$p('This tab is intended for users who would like to see incidence information around a particular address in Seattle.
+           If you would like to look for neighborhood level information, just zoom out or click to the "Neighborhood" tab.'),
+    tags$p('Please note that this will only work for', em('residences for sale'), 'in Seattle.'),
+    tags$p('For looking at information about a particular residence for sale in Seattle, follow these steps:'),
+    tags$ol(
+      tags$li('Type in the street your residence of interest is on inside the "Street" text box'),
+      tags$li('Type in the city, state, and zipcode your residence of interest is in inside the "City, State, and Zip Code" text box'),
+      tags$li('Click "Enter" to change the map to focus on your residence of interest'), 
+      tags$li('You can also specify whether you would like to see just misdemeanors, felonies, or both in the drop down menu'),
+      tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
+    )
+  )
 )
 
 shinyUI(my.ui)
