@@ -25,5 +25,3 @@ FindHouseData <- function(my.address, my.citystatezip){
                            long = results$response$results$result$address$longitude)
   return(house.data)
 }
-
-View(FindHouseData('2621 2nd Ave APT 1505', 'Seattle, WA 98121'))
