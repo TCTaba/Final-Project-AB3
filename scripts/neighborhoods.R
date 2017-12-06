@@ -17,13 +17,16 @@ SeparateRegions <- function(single.region) {
   } 
   region.df <- data.frame(single.region$name, single.region$latitude,
                           single.region$longitude, single.region$url, zindex)
-  colnames(region.df) <- c("Region Name", "Latitude", "Longitude", "URL", "Zindex")
+  colnames(region.df) <- c("Neighborhood", "Latitude", "Longitude", "URL", "Zindex")
   return(region.df)
 }
 
 parsed.regions <- SeparateRegions(regions[2]$region) 
-colnames(parsed.regions) <- c("Region Name", "Latitude", "Longitude", "URL", "Zindex")
+colnames(parsed.regions) <- c("Neighborhood", "Latitude", "Longitude", "URL", "Zindex")
+total.neighborhoods <- as.numeric(regions$count)
 
-for(i in 3:103) {
+for(i in 3:(total.neighborhoods + 1)) {
   parsed.regions <- bind_rows(parsed.regions, SeparateRegions(regions[i]$region))
 }
+# Alphabetize data
+parsed.regions <- arrange(parsed.regions, Neighborhood)
