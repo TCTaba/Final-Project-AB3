@@ -38,8 +38,8 @@ body {
 .well {
   background-color: lightgrey;
   color: #3e4146;
-  min-height: 375px;
-  margin-top: 75px
+  min-height: 350px;
+  margin-top: 40px
 }
 
 .well > h1 {
@@ -47,7 +47,6 @@ body {
   font-weight: bold;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 30px;
 }
 
 #main-descrip {
@@ -69,5 +68,13 @@ body {
 
 .container-fluid, .tab-pane, .tab-content{
   height: 100%;
-  overflow: auto;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+#tab-8009-1 {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+  padding-left: 25px;
 }

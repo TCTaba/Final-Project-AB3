@@ -43,7 +43,7 @@ PlotDataNeighborhood <- function(df, neighborhood) {
                          center = list(lat = location$Latitude,
                                        lon = location$Longitude)),
            legend = list(orientation = 'v',
-                         font = list(size = 80)),
+                         font = list(size = 10)),
            margin = list(l = 0, r = 0,
                          b = 0, t = 0,
                          pad = 0))
