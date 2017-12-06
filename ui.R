@@ -76,7 +76,7 @@ my.ui <- navbarPage(
                ),
              # Show a plot of the generated distribution
              mainPanel(
-               plotlyOutput("neighborhoodPlot")
+               plotlyOutput("neighborhoodPlot", width = "100%", height = "100%")
              )
            )
   ),
@@ -100,7 +100,7 @@ my.ui <- navbarPage(
              
              # Show a plot of the generated distribution
              mainPanel(
-               plotlyOutput("addressPlot")
+               plotlyOutput("addressPlot", width = "100%", height = "100%")
              )
            )
   )
