@@ -12,6 +12,7 @@ body <- content(response, 'text')
 results <- xmlToList(body)
 regions <- results$response$list
 
+# Organize data given from API
 SeparateRegions <- function(single.region) {
   zindex <- single.region$zindex$text
   if(is.null(zindex)){
@@ -31,5 +32,5 @@ for(i in 3:(total.neighborhoods)) {
   parsed.regions <- union(SeparateRegions(regions[i]$region), parsed.regions)
 }
 
-# alphabetize data
+# Alphabetize data
 parsed.regions <- arrange(parsed.regions, Neighborhood)

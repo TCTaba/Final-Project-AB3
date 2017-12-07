@@ -16,6 +16,7 @@ GetSPDData <- function() {
   return(final.data)
 }
 
+# Separate crimes by type
 misdemeanors <- c("ANIMAL COMPLAINT", "ASSAULT", "BIKE THEFT", "CAR PROWL", "COUNTERFEIT", "DISORDERLY CONDUCT", "DISPUTE", 
                   "DUI", "FIREWORK", "INJURY", "OBSTRUCT", "OTHER PROPERTY", "PICKPOCKET", "PROPERTY DAMAGE", "PROSTITUTION",
                   "RECOVERED PROPERTY", "STOLEN PROPERTY", "THEFT OF SERVICE", "THREATS", "TRAFFIC", "TRESSPASS")

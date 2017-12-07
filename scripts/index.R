@@ -5,7 +5,7 @@ source('./scripts/spd_data.R')
 source('./scripts/zillow_data.R')
 source('./scripts/neighborhoods.R')
 
-
+# Function that plots crime data and zooms to respective address according to user inputted address
 PlotDataAddress <- function(df, address_street, address_CSZ) {
   house.data <- FindHouseData(address_street, address_CSZ)
   house.info <- sprintf("Address: %s", house.data$address[1])
@@ -39,6 +39,7 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
   return(p)
 }
 
+# Function that plots crime data and zooms to respective location according to user selected neighborhood
 PlotDataNeighborhood <- function(df, neighborhood) {
   location <- parsed.regions %>% filter(Neighborhood == neighborhood)
   p <- df %>%
