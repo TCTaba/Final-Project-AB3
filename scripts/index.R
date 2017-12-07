@@ -60,3 +60,22 @@ PlotDataNeighborhood <- function(df, neighborhood) {
 
   return(p)
 }
+
+# Insights
+most.common.fel <- fel.data %>% 
+  count(summarized_offense_description) %>% 
+  filter(n == max(n))
+most.common.mis <- mis.data %>% 
+  count(summarized_offense_description) %>% 
+  filter(n == max(n))
+
+neighborhoods.with.zindex <- parsed.regions %>% 
+  filter(Zindex != 'NA')
+most.expensive.neighborhood <- neighborhoods.with.zindex %>% 
+  filter(Zindex == max(as.numeric(Zindex)))
+least.expensive.neighborhood <- neighborhoods.with.zindex %>% 
+  filter(Zindex == min(as.numeric(Zindex)))
+mean.cost <- neighborhoods.with.zindex %>% 
+  summarise(mean = round(mean(as.numeric(Zindex))))
+median.cost <- neighborhoods.with.zindex %>% 
+  summarise(median = median(as.numeric(Zindex)))
