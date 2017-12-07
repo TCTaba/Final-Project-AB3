@@ -56,9 +56,8 @@ body {
 .controls {
   position: absolute;
   top: 80px;
-  left: 0;
+  left: 15px;
   z-index: 1;
-  background-color: #171818;
   width: 275px;
   padding-left: 10px;
   padding-right: 10px;
@@ -66,10 +65,32 @@ body {
   padding-bottom: 5px;
 }
 
+.controls::after {
+  content: "";
+  background-color: black;
+  box-shadow: black 0 0 50px 13px;
+  opacity: 0.25;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.control-label, h4 {
+  color: lightgrey;
+  margin-top: 15px;
+}
+
 .container-fluid, .tab-pane, .tab-content{
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+}
+
+#tab-9695-4 {
+  margin-bottom: 10%;
 }
 
 #tab-8009-1 {
@@ -79,6 +100,6 @@ body {
   padding-left: 25px;
 }
 
-ol {
-  list-style-position: outside;
+#js-plotly-tester {
+  margin: auto;
 }
