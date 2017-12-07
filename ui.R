@@ -146,6 +146,11 @@ my.ui <- navbarPage(theme = "styles.css",
               tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
             ),
             tags$br(),
+            tags$h3('Manipulating Data Points'),
+            tags$p('You can manipulate the data you see by clicking any item on the legend to hide it. Double clicking on an item will isolate it, 
+                   and hide all other points. Double clicking again will bring all points back onto the map. You can zoom in and out by scrolling up and down, 
+                   to pan, click and drag.'),
+            tags$br(),
             tags$h3('Some Insights and Analysis'),
             tags$ol(
               tags$li("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
