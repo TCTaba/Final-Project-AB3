@@ -83,27 +83,13 @@ body {
   margin-top: 15px;
 }
 
-.container-fluid, .tab-pane, .tab-content, #tab-6823-4{
+.container-fluid, .tab-pane, .tab-content{
   height: 100%;
-  width: 100%;
+  max-width: 100%;
   overflow-y: scroll;
 }
 
-#tab-6823-4{
-  margin-bottom: 100px;
-}
-
-#tab-9695-4 {
-  margin-bottom: 10%;
-}
-
-#tab-8009-1 {
-  margin-bottom: 25px;
-  padding-bottom: 25px;
-  padding-right: 25px;
-  padding-left: 25px;
-}
-
-#js-plotly-tester {
-  margin: 0;
+#learn-more {
+  overflow-y: scroll;
+  height: 750px;
 }
