@@ -14,6 +14,7 @@ my.ui <- navbarPage(theme = "styles.css",
   # Application title
   "Seattle Housing and Crime",
   
+  # Home Tab
    tabPanel("Home",
      tags$div(id='home',
       tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
@@ -72,6 +73,7 @@ my.ui <- navbarPage(theme = "styles.css",
      
   ),
   
+  # Search By Neighborhood Tab
   tabPanel("Neighborhoods",
        fillPage(
          tags$div(class = "controls",
@@ -91,6 +93,7 @@ my.ui <- navbarPage(theme = "styles.css",
        )
   ),
   
+  # Search by Address
   tabPanel("Address",
      fillPage(
        tags$div(class = "controls", 
@@ -114,6 +117,7 @@ my.ui <- navbarPage(theme = "styles.css",
      )
    ),
   
+  # Project Info Tab
   tabPanel("About the Project",
     tags$div(id='about',
              tags$p('For information about each type of crime, visit the "Learn More" tab.'),
@@ -162,6 +166,7 @@ my.ui <- navbarPage(theme = "styles.css",
                    a('GitHub', href="https://github.com/TCTaba/Final-Project-AB3"))
           )
     ),
+  # Felony/Misdemeanor Info Tab
   tabPanel("Learn More",
            tags$div(id="learn-more",
                     tags$p('Here you will find a comprehensive list of the types of crimes that are listed in the map.'),
