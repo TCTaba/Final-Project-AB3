@@ -91,5 +91,6 @@ body {
 
 #learn-more {
   overflow-y: scroll;
-  height: 750px;
+  overflow-x: scroll;
+  max-height: 90%;
 }
