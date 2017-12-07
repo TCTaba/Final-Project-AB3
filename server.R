@@ -9,6 +9,7 @@ source("./scripts/zillow_data.R")
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
   output$neighborhoodPlot <- renderPlotly({
+  
     
     if(input$type.var == "mis") {
       PlotDataNeighborhood(mis.data, input$neighborhood.var)

@@ -78,9 +78,8 @@ my.ui <- navbarPage(theme = "styles.css",
                         choices = list("Misdemeanor" = "mis",
                                        "Felony" = "fel",
                                        "Both" = "both"),
-                        width = "250px")     
-                  
-                  
+                        width = "250px"),
+            tags$p('Neighborhood Average = $', parsed.regions$Zindex, sep = '')
           ),
        plotlyOutput("neighborhoodPlot", height = "100%"), padding = 0
        )
