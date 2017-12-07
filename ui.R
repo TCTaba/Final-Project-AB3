@@ -15,9 +15,10 @@ my.ui <- navbarPage(theme = "styles.css",
   "Seattle Housing and Crime",
   
    tabPanel("Home",
-     tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
-     tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
-     tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
+     tags$div(id='home',
+      tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
+      tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
+      tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
              maps homes for sale in the Seattle area, and all police report incidents 
              that have occurred in the city of Seattle in the last three months. 
              The purpose of this project is to create a visual representation of 
@@ -27,46 +28,48 @@ my.ui <- navbarPage(theme = "styles.css",
              representation of crime in an area, but we hope that this application 
              will help homebuyers gain a better understanding of the current safety 
              surrounding their future home.'),
-     fluidRow(width = "100%",
-       column(3, 
-         wellPanel(
-           tags$h1('INTENDED USE'),
-             tags$p('While this application is useful to any Seattle resident who is curious to 
-                     the crime rates surrounding their home, the intended audience is potential 
-                     homebuyers who are interested in a Seattle home. We expect our audience to 
-                     visit our site with prior knowledge of the specific address to a home for 
-                     sale, or a specific neighborhood of Seattle that they are interested in purchasing 
-                     a home in, in order to optimize their experience.')
-         ) 
-       ),
-       column(3, 
-         wellPanel(
-           tags$h1('DATA'),
-           tags$p('We are working with two datasets. The first dataset, collected by', a('the Seattle Police Department',href="https://data.seattle.gov/Public-Safety/Seattle-Police-Department-Police-Report-Incident/7ais-f98f"),
-                 'contains data on reported Seattle police incidents, updated every 15 minutes. We decided to use data only from the last three months.
-                 The second dataset, collected by', a('Zillow', href="https://www.zillow.com/howto/api/APIOverview.htm"), 
-                 'contains property information for houses listed for sale, which is updated daily.')
-         )
-       ),
-       column(3, 
-         wellPanel(
-           tags$h1('QUESTIONS TO EXPLORE'),
-           tags$ol(
-             tags$li('Is there a correlation between housing prices and reported crime in Seattle?'), 
-             tags$li('How does reported crime vary in each of the 103 neighborhoods of Seattle?'),
-             tags$li('Which neighborhoods have the highest and lowest housing prices?') )
-         )
-       ),
-       column(3, 
-         wellPanel(
-           tags$h1('STRUCTURE'),
-             tags$p('We have provided two different options of how the user chooses to view the data: 
-                   searching by a home address, or searching by a neighborhood. In both of these options,
-                   the user will be able to select and filter the kinds of police reports they wish to
-                   see on the map (felonies, misdemeanors, or both).')
-         )
-       )
+      fluidRow(width = "100%",
+               column(3, 
+                      wellPanel(
+                        tags$h1('INTENDED USE'),
+                        tags$p('While this application is useful to any Seattle resident who is curious to 
+                               the crime rates surrounding their home, the intended audience is potential 
+                               homebuyers who are interested in a Seattle home. We expect our audience to 
+                               visit our site with prior knowledge of the specific address to a home for 
+                               sale, or a specific neighborhood of Seattle that they are interested in purchasing 
+                               a home in, in order to optimize their experience.')
+                        ) 
+                        ),
+               column(3, 
+                      wellPanel(
+                        tags$h1('DATA'),
+                        tags$p('We are working with two datasets. The first dataset, collected by', a('the Seattle Police Department',href="https://data.seattle.gov/Public-Safety/Seattle-Police-Department-Police-Report-Incident/7ais-f98f"),
+                               'contains data on reported Seattle police incidents, updated every 15 minutes. We decided to use data only from the last three months.
+                               The second dataset, collected by', a('Zillow', href="https://www.zillow.com/howto/api/APIOverview.htm"), 
+                               'contains property information for houses listed for sale, which is updated daily.')
+                      )
+                      ),
+               column(3, 
+                      wellPanel(
+                        tags$h1('QUESTIONS TO EXPLORE'),
+                        tags$ol(
+                          tags$li('Is there a correlation between housing prices and reported crime in Seattle?'), 
+                          tags$li('How does reported crime vary in each of the 103 neighborhoods of Seattle?'),
+                          tags$li('Which neighborhoods have the highest and lowest housing prices?') )
+                      )
+               ),
+               column(3, 
+                      wellPanel(
+                        tags$h1('STRUCTURE'),
+                        tags$p('We have provided two different options of how the user chooses to view the data: 
+                               searching by a home address, or searching by a neighborhood. In both of these options,
+                               the user will be able to select and filter the kinds of police reports they wish to
+                               see on the map (felonies, misdemeanors, or both).')
+                        )
+                      )
+              )        
      )
+     
   ),
   
   tabPanel("Neighborhoods",
@@ -175,48 +178,52 @@ my.ui <- navbarPage(theme = "styles.css",
   ),
   
   tabPanel("About the Project",
-    tags$p('For information about each type of crime, visit the "Learn More" tab.'),
-    tags$br(),
-    tags$br(),
-    tags$h3('Neighborhood Tab'),
-    tags$p('This tab is indended for users who would like to see incidence information for a general area of Seattle.
-           If you would like to look into a particular address, please check out the "Address" tab'),
-    tags$p('For looking at information about a particular neighborhood in Seattle, follow these steps:'),
-    tags$ol(
-      tags$li('Select neighborhood from options on the top left side'),
-      tags$li('Select whether you would like to view just misdemeanors, just felonies, or both for the selected neighborhood'),
-      tags$li('From here the map should display the selected neighborhood with the selected type of data you want. You can zoom
-              in and out however you like from here.')
-    ),
-    tags$br(),
-    tags$h3('Address Tab'),
-    tags$p('This tab is intended for users who would like to see incidence information around a particular address in Seattle.
-           If you would like to look for neighborhood level information, just zoom out or click to the "Neighborhood" tab.'),
-    tags$p('Please note that this will only work for', em('residences for sale'), 'in Seattle.'),
-    tags$p('For looking at information about a particular residence for sale in Seattle, follow these steps:'),
-    tags$ol(
-      tags$li('Type in the street your residence of interest is on inside the "Street" text box'),
-      tags$li('Type in the city, state, and zipcode your residence of interest is in inside the "City, State, and Zip Code" text box'),
-      tags$li('Click "Enter" to change the map to focus on your residence of interest'), 
-      tags$li('You can also specify whether you would like to see just misdemeanors, felonies, or both in the drop down menu'),
-      tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
-    ),
-    tags$h3('Analysis'),
-    tags$ol(
-      tags$li("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
-              'which has occured ', most.common.fel$n, ' times.'),
-      tags$li('The most common misdemeanor committed in the past 5000 police reports is ',
-              most.common.mis$summarized_offense_description, 'which has occured ',  most.common.mis$n, ' times.'),
-      tags$li("Currently, the most expensive homes of Seattle are found in ", most.expensive.neighborhood$Neighborhood, 
-              ' and the least expensive homes of Seattle are found in ', least.expensive.neighborhood$Neighborhood, '.'), 
-      tags$li('Overall, the average price of homes in Seattle is $', mean.cost$mean, ' and the median price of a Seattle home is $', median.cost$median, '.')
-    ),
-    tags$h3('About the Creators'),
-    tags$p('This app was created by four students, as listed on the home page, 
-           attending the University of Washington as their Final Project for the class INFO 201 - Technical Foundations. 
-           If you would like to take a look at their code, please feel free to visit on', 
-           a('GitHub', href="https://github.com/TCTaba/Final-Project-AB3"))
-  )
+    tags$div(id='about',
+             tags$p('For information about each type of crime, visit the "Learn More" tab.'),
+             tags$br(),
+             tags$h3('Neighborhood Tab'),
+             tags$p('This tab is indended for users who would like to see incidence information for a general area of Seattle.
+                    If you would like to look into a particular address, please check out the "Address" tab'),
+             tags$p('For looking at information about a particular neighborhood in Seattle, follow these steps:'),
+             tags$ol(
+               tags$li('Select neighborhood from options on the top left side'),
+               tags$li('Select whether you would like to view just misdemeanors, just felonies, or both for the selected neighborhood'),
+               tags$li('From here the map should display the selected neighborhood with the selected type of data you want. You can zoom
+                       in and out however you like from here.')
+             ),
+            tags$br(),
+            tags$h3('Address Tab'),
+            tags$p('This tab is intended for users who would like to see incidence information around a particular address in Seattle.
+                   If you would like to look for neighborhood level information, just zoom out or click to the "Neighborhood" tab.'),
+            tags$p('Please note that this will only work for', em('residences for sale'), 'in Seattle.'),
+            tags$p('For looking at information about a particular residence for sale in Seattle, follow these steps:'),
+            tags$ol(
+              tags$li('Type in the street your residence of interest is on inside the "Street" text box'),
+              tags$li('Type in the city, state, and zipcode your residence of interest is in inside the "City, State, and Zip Code" text box'),
+              tags$li('Click "Enter" to change the map to focus on your residence of interest'), 
+              tags$li('You can also specify whether you would like to see just misdemeanors, felonies, or both in the drop down menu'),
+              tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
+            ),
+            tags$br(),
+            tags$h3('Some Insights and Analysis'),
+            tags$ol(
+              tags$li("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
+                      'which has occured ', most.common.fel$n, ' times.'),
+              tags$li('The most common misdemeanor committed in the past 5000 police reports is ',
+                      most.common.mis$summarized_offense_description, 'which has occured ',  most.common.mis$n, ' times.'),
+              tags$li("Currently, the most expensive homes of Seattle are found in ", most.expensive.neighborhood$Neighborhood, 
+                      ' and the least expensive homes of Seattle are found in ', least.expensive.neighborhood$Neighborhood, '.'), 
+              tags$li('Overall, the average price of homes in Seattle is $', mean.cost$mean, ' and the median price of a Seattle home is $', median.cost$median, '.')
+            ),
+            tags$br(),
+            tags$h3('About the Creators'),
+            tags$p('This app was created by four students, as listed on the home page, 
+                   attending the University of Washington as their Final Project for the class INFO 201 - Technical Foundations. 
+                   If you would like to take a look at their code, please feel free to visit on', 
+                   a('GitHub', href="https://github.com/TCTaba/Final-Project-AB3"))
+          )
+    )
+    
 )
 
 shinyUI(my.ui)
