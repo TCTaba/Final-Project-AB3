@@ -148,6 +148,11 @@ my.ui <- navbarPage(theme = "styles.css",
       tags$li('Burglary'),
       tags$li('Burglary-secure parking-res'),
       tags$li('Eluding'),
+        tags$ul(tags$li('eluding exists when an officer operating an authorized police vehicle issues
+                        by hand, voice, emergency lights or siren a visual and/or audible signal to 
+                        the driver of a vehicle to stop and, after a reasonable time to yield in response 
+                        to the officer’s signal, the driver does any of the following: Increases speed, 
+                        takes evasive actions, or refuses to stop')),
       tags$li('Embezzle'),
       tags$li('Forgery'),
       tags$li('Fraud'),
