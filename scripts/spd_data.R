@@ -4,17 +4,14 @@ library(dplyr)
 
 source('./scripts/api_keys.R')
 
-GetSPDData <- function() {
-  response <- GET("https://data.seattle.gov/resource/y7pv-r3kh.json?$limit=5000&$order=date_reported%20DESC", 
-                  add_headers("X-API-Key" = seattle.app.token))
-  body <- content(response, "text")
-  data <- fromJSON(body)
-  final.data <- data %>% 
-    select(date_reported, latitude, longitude, summarized_offense_description, offense_type)
-  final.data$latitude <- as.numeric(as.character(final.data$latitude))
-  final.data$longitude <- as.numeric(as.character(final.data$longitude))
-  return(final.data)
-}
+response <- GET("https://data.seattle.gov/resource/y7pv-r3kh.json?$limit=5000&$order=date_reported%20DESC", 
+                add_headers("X-API-Key" = seattle.app.token))
+body <- content(response, "text")
+final.data <- fromJSON(body) %>% 
+  select(date_reported, latitude, longitude, summarized_offense_description, offense_type)
+full.data <- add_count(final.data, summarized_offense_description, sort = TRUE)
+full.data$latitude <- as.numeric(as.character(final.data$latitude))
+full.data$longitude <- as.numeric(as.character(final.data$longitude))
 
 misdemeanors <- c("ANIMAL COMPLAINT", "ASSAULT", "BIKE THEFT", "CAR PROWL", "COUNTERFEIT", "DISORDERLY CONDUCT", "DISPUTE", 
                   "DUI", "FIREWORK", "INJURY", "OBSTRUCT", "OTHER PROPERTY", "PICKPOCKET", "PROPERTY DAMAGE", "PROSTITUTION",
@@ -24,18 +21,8 @@ felonies <- c("BURGLARY", "BURGLARY-SECURE PARKING-RES", "ELUDING", "EMBEZZLE", 
               "NARCOTICS", "PORNOGRAPHY", "RECKLESS BURNING", "ROBERRY", "SHOPLIFTING", "STOLEN PROPERTY", "VEHICLE THEFT",
               "VIOLATION OF COURT ORDER", "WARRANT ARREST", "LOST PROPERTY")
 
-full.data <- GetSPDData()
-
-
-offense.types <- unique(full.data$offense_type)
+offense.types <- unique(final.data$offense_type)
 offense.names <- read.csv('scripts/offense_types.csv', stringsAsFactors = FALSE)
-
-GetExpandedName <- function(my.name) {
-  expanded.name <- offense.names %>% 
-    filter(name == my.name) %>%
-    select(expanded) 
-  return(expanded.name$expanded[1])
-}
 
 mis.data <- full.data %>%
   filter(summarized_offense_description %in% misdemeanors)
