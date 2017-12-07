@@ -13,6 +13,7 @@ my.ui <- navbarPage(theme = "styles.css",
   "Seattle Housing and Crime",
   
    tabPanel("About",
+     tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
      tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
      tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
              maps homes for sale in the Seattle area, and all police report incidents 
