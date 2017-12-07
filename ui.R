@@ -146,7 +146,7 @@ my.ui <- navbarPage(theme = "styles.css",
             rape, burglary, kidnapping, or arson.'),
     tags$ul(
       tags$li('Burglary'),
-      tags$li('Burglary-secure parking-res'),
+      tags$li('Burglary (Secure Parking Residence)'),
       tags$li('Eluding'),
       tags$li('Embezzle'),
       tags$li('Forgery'),
