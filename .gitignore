@@ -33,4 +33,4 @@ vignettes/*.pdf
 *.knit.md
 
 # API Keys
-scripts/api-keys.R
+scripts/api_keys.R
