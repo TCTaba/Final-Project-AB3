@@ -29,7 +29,8 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
                                                                       sep = "<br />"), 
                 hoverinfo = "text",
                 symbol = I("star"),
-                split = ~address
+                split = ~address,
+                marker = list(size = 20)
                 )
   
   return(p)
