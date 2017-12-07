@@ -4,6 +4,7 @@ library(dplyr)
 
 source('./scripts/api_keys.R')
 
+# Function to retrieve SPD data with API Key
 GetSPDData <- function() {
   response <- GET("https://data.seattle.gov/resource/y7pv-r3kh.json?$limit=5000&$order=date_reported%20DESC", 
                   add_headers("X-API-Key" = seattle.app.token))
@@ -27,7 +28,6 @@ felonies <- c("BURGLARY", "BURGLARY-SECURE PARKING-RES", "ELUDING", "EMBEZZLE", 
 
 full.data <- GetSPDData()
 
-
 offense.types <- unique(full.data$offense_type)
 offense.names <- read.csv('scripts/offense_types.csv', stringsAsFactors = FALSE)
 
@@ -44,8 +44,8 @@ mis.data <- full.data %>%
 fel.data <- full.data %>%
   filter(summarized_offense_description %in% felonies)
 
-mis.data$expanded<-offense.names[match(mis.data$offense_type, offense.names$offense_type),2]
-fel.data$expanded<-offense.names[match(fel.data$offense_type, offense.names$offense_type),2]
-full.data$expanded<-offense.names[match(full.data$offense_type, offense.names$offense_type),2]
+mis.data$expanded <- offense.names[match(mis.data$offense_type, offense.names$offense_type),2]
+fel.data$expanded <- offense.names[match(fel.data$offense_type, offense.names$offense_type),2]
+full.data$expanded <- offense.names[match(full.data$offense_type, offense.names$offense_type),2]
 
 

@@ -1,4 +1,3 @@
-library(jsonlite)
 library(httr)
 library(XML)
 
