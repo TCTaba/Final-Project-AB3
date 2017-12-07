@@ -24,6 +24,8 @@ felonies <- c("BURGLARY", "BURGLARY-SECURE PARKING-RES", "ELUDING", "EMBEZZLE", 
               "NARCOTICS", "PORNOGRAPHY", "RECKLESS BURNING", "ROBERRY", "SHOPLIFTING", "STOLEN PROPERTY", "VEHICLE THEFT",
               "VIOLATION OF COURT ORDER", "WARRANT ARREST", "LOST PROPERTY")
 
+offense.types <- unique(full.data$offense_type)
+
 full.data <- GetSPDData()
 
 mis.data <- full.data %>%
