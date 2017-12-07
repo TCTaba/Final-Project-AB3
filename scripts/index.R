@@ -61,7 +61,8 @@ PlotDataNeighborhood <- function(df, neighborhood) {
   return(p)
 }
 
-# Insights
+# Insights into crime and housing data
+# Crime
 most.common.fel <- fel.data %>% 
   count(summarized_offense_description) %>% 
   filter(n == max(n))
@@ -69,6 +70,8 @@ most.common.mis <- mis.data %>%
   count(summarized_offense_description) %>% 
   filter(n == max(n))
 
+# Housing
+# Make data frame of neighborhoods that have a Zindex (avg. value of houses in neighborhood)
 neighborhoods.with.zindex <- parsed.regions %>% 
   filter(Zindex != 'NA')
 most.expensive.neighborhood <- neighborhoods.with.zindex %>% 
