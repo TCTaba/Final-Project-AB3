@@ -83,10 +83,14 @@ body {
   margin-top: 15px;
 }
 
-.container-fluid, .tab-pane, .tab-content{
+.container-fluid, .tab-pane, .tab-content, #tab-6823-4{
   height: 100%;
   width: 100%;
   overflow-y: scroll;
+}
+
+#tab-6823-4{
+  margin-bottom: 100px;
 }
 
 #tab-9695-4 {
@@ -101,5 +105,5 @@ body {
 }
 
 #js-plotly-tester {
-  margin: auto;
+  margin: 0;
 }

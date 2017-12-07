@@ -146,13 +146,8 @@ my.ui <- navbarPage(theme = "styles.css",
             rape, burglary, kidnapping, or arson.'),
     tags$ul(
       tags$li('Burglary'),
-      tags$li('Burglary-secure parking-res'),
+      tags$li('Burglary (Secure Parking Residence)'),
       tags$li('Eluding'),
-        tags$ul(tags$li('eluding exists when an officer operating an authorized police vehicle issues
-                        by hand, voice, emergency lights or siren a visual and/or audible signal to 
-                        the driver of a vehicle to stop and, after a reasonable time to yield in response 
-                        to the officer’s signal, the driver does any of the following: Increases speed, 
-                        takes evasive actions, or refuses to stop')),
       tags$li('Embezzle'),
       tags$li('Forgery'),
       tags$li('Fraud'),
@@ -170,8 +165,9 @@ my.ui <- navbarPage(theme = "styles.css",
       tags$li('Lost Property')
     ),
     tags$p('Information on felony and misdemeanors is from', 
-           a('FindLaw', href="http://criminal.findlaw.com/criminal-law-basics/what-distinguishes-a-misdemeanor-from-a-felony.html"))
-    
+           a('FindLaw', href="http://criminal.findlaw.com/criminal-law-basics/what-distinguishes-a-misdemeanor-from-a-felony.html"),
+           'for more information on each offense, visit the ',
+           a('Seattle PD Website', href = 'https://www.seattle.gov/police-manual'))
   ),
   
   tabPanel("Questions?",
