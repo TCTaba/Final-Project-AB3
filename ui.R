@@ -40,7 +40,7 @@ my.ui <- navbarPage(theme = "styles.css",
          wellPanel(
            tags$h1('DATA'),
            tags$p('We are working with two datasets. The first dataset, collected by', a('the Seattle Police Department',href="https://data.seattle.gov/Public-Safety/Seattle-Police-Department-Police-Report-Incident/7ais-f98f"),
-                 'contains data on reported Seattle police incidents, updated every 15 minutes. 
+                 'contains data on reported Seattle police incidents, updated every 15 minutes. We decided to use data only from the last three months.
                  The second dataset, collected by', a('Zillow', href="https://www.zillow.com/howto/api/APIOverview.htm"), 
                  'contains property information for houses listed for sale, which is updated daily.')
          )
