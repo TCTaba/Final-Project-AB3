@@ -14,7 +14,7 @@ my.ui <- navbarPage(theme = "styles.css",
   # Application title
   "Seattle Housing and Crime",
   
-   tabPanel("About",
+   tabPanel("Home",
      tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
      tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
      tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
@@ -174,7 +174,7 @@ my.ui <- navbarPage(theme = "styles.css",
     )
   ),
   
-  tabPanel("Questions?",
+  tabPanel("About the Project",
     tags$p('For information about each type of crime, visit the "Learn More" tab.'),
     tags$br(),
     tags$br(),
@@ -200,15 +200,22 @@ my.ui <- navbarPage(theme = "styles.css",
       tags$li('Click "Enter" to change the map to focus on your residence of interest'), 
       tags$li('You can also specify whether you would like to see just misdemeanors, felonies, or both in the drop down menu'),
       tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
-    )
-  ),
-  tabPanel("Analysis",
-           tags$p("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
-          'which has occured ', most.common.fel$n, ' times. The most common misdemeanor committed in the past 5000 police reports is ',
-            most.common.mis$summarized_offense_description, 'which has occured ',  most.common.mis$n, ' times.'),
-           tags$p("Currently, the most expensive homes of Seattle are found in ", most.expensive.neighborhood$Neighborhood, 
-            ' and the least expensive homes of Seattle are found in ', least.expensive.neighborhood$Neighborhood, '. 
-            Overall, the average price of homes in Seattle is $', mean.cost$mean, ' and the median price of a Seattle home is $', median.cost$median, '.')
+    ),
+    tags$h3('Analysis'),
+    tags$ol(
+      tags$li("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
+              'which has occured ', most.common.fel$n, ' times.'),
+      tags$li('The most common misdemeanor committed in the past 5000 police reports is ',
+              most.common.mis$summarized_offense_description, 'which has occured ',  most.common.mis$n, ' times.'),
+      tags$li("Currently, the most expensive homes of Seattle are found in ", most.expensive.neighborhood$Neighborhood, 
+              ' and the least expensive homes of Seattle are found in ', least.expensive.neighborhood$Neighborhood, '.'), 
+      tags$li('Overall, the average price of homes in Seattle is $', mean.cost$mean, ' and the median price of a Seattle home is $', median.cost$median, '.')
+    ),
+    tags$h3('About the Creators'),
+    tags$p('This app was created by four students, as listed on the home page, 
+           attending the University of Washington as their Final Project for the class INFO 201 - Technical Foundations. 
+           If you would like to take a look at their code, please feel free to visit on', 
+           a('GitHub', href="https://github.com/TCTaba/Final-Project-AB3"))
   )
 )
 
