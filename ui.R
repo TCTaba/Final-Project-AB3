@@ -5,6 +5,8 @@ source("./scripts/spd_data.R")
 source("./scripts/api_keys.R")
 source("./scripts/zillow_data.R")
 source("./scripts/neighborhoods.R")
+source("./scripts/index.R")
+
 
 my.ui <- navbarPage(theme = "styles.css",
   
@@ -198,6 +200,14 @@ my.ui <- navbarPage(theme = "styles.css",
       tags$li('You can also specify whether you would like to see just misdemeanors, felonies, or both in the drop down menu'),
       tags$li('From here the map should display the selected house, with the type of data you want to see. You can zoom in and out however you want from here.')
     )
+  ),
+  tabPanel("Analysis",
+           tags$p("The most common felony committed in the past 5000 police reports is ", most.common.fel$summarized_offense_description, 
+          'which has occured ', most.common.fel$n, ' times. The most common misdemeanor committed in the past 5000 police reports is ',
+            most.common.mis$summarized_offense_description, 'which has occured ',  most.common.mis$n, ' times.'),
+           tags$p("Currently, the most expensive homes of Seattle are found in ", most.expensive.neighborhood$Neighborhood, 
+            ' and the least expensive homes of Seattle are found in ', least.expensive.neighborhood$Neighborhood, '. 
+            Overall, the average price of homes in Seattle is $', mean.cost$mean, ' and the median price of a Seattle home is $', median.cost$median, '.')
   )
 )
 

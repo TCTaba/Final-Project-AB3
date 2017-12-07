@@ -79,3 +79,5 @@ mean.cost <- neighborhoods.with.zindex %>%
   summarise(mean = round(mean(as.numeric(Zindex))))
 median.cost <- neighborhoods.with.zindex %>% 
   summarise(median = median(as.numeric(Zindex)))
+
+
