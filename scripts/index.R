@@ -23,9 +23,12 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
                        pad = 0))%>%
     add_markers(data = df, x = ~longitude, y = ~latitude, text=~summarized_offense_description,
                 hoverinfo = "text", split=~summarized_offense_description) %>%
-    add_markers(data = house.data, x = ~long, y = ~lat, text = ~paste(house.data$address, "Zestimate (Zillow's Estimated Market Value)", house.data$price, 
-                                                                      "Bed", house.data$bed, "Bath", house.data$bath,
-                                                                      "Year", house.data$year, "Square Feet", house.data$sqFt, 
+    add_markers(data = house.data, x = ~long, y = ~lat, text = ~paste(house.data$address, 
+                                                                      paste("Zestimate (Zillow's Estimated Market Value):", house.data$price), 
+                                                                      paste("Bed:", house.data$bed), 
+                                                                      paste("Bath:", house.data$bath),
+                                                                      paste("Year:", house.data$year), 
+                                                                      paste("Square Feet:", house.data$sqFt), 
                                                                       sep = "<br />"), 
                 hoverinfo = "text",
                 symbol = I("star"),
