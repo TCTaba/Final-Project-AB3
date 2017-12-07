@@ -31,5 +31,5 @@ for(i in 3:(total.neighborhoods)) {
   parsed.regions <- union(SeparateRegions(regions[i]$region), parsed.regions)
 }
 
-# Alphabetize data
+# alphabetize data
 parsed.regions <- arrange(parsed.regions, Neighborhood)
