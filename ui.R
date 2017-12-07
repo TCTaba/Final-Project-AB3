@@ -114,69 +114,6 @@ my.ui <- navbarPage(theme = "styles.css",
      )
    ),
   
-  tabPanel("Learn More",
-    tags$div(id="learn-more",
-       tags$p('Here you will find a comprehensive list of the types of crimes that are listed in the map.'),
-       tags$br(),
-       tags$h3('Misdemeanors'),
-       tags$p('Misdemeanors usually defined as a crime which is punishable by up to a year in jail time.'),
-       tags$ul(
-         tags$li('Animal Complaint'),
-         tags$li('Assault'),
-         tags$li('Bike Theft'),
-         tags$li('Car Prowl'),
-         tags$li('Counterfeit'),
-         tags$li('Disorderly Conduct'),
-         tags$li('Dispute'),
-         tags$li('DUI (Driving Under the Influence)'),
-         tags$li('Firework'),
-         tags$li('Injury'),
-         tags$li('Obstruct'),
-         tags$li('Other Property'),
-         tags$li('Pickpocket'),
-         tags$li('Property Damage'),
-         tags$li('Prostitution'),
-         tags$li('Recovered Property'),
-         tags$li('Stolen Property'),
-         tags$li('Theft of Service'),
-         tags$li('Threats'),
-         tags$li('Traffic'),
-         tags$li('Trespass')
-       ),
-       
-       tags$br(),
-       tags$h3('Felonies:'),
-       tags$p('Felonies are the most serious types of crimes. They are usually defined by the fact 
-              that they are punishable by prison sentences of greater than one year. Felonies are 
-              usually crimes that are viewed severely by society, and include crimes such as murder, 
-              rape, burglary, kidnapping, or arson.'),
-       tags$ul(
-         tags$li('Burglary'),
-         tags$li('Burglary (Secure Parking Residence)'),
-         tags$li('Eluding'),
-         tags$li('Embezzle'),
-         tags$li('Forgery'),
-         tags$li('Fraud'),
-         tags$li('Homicide'),
-         tags$li('Mail Theft'),
-         tags$li('Narcotics'),
-         tags$li('Pornography'),
-         tags$li('Reckless Burning'),
-         tags$li('Robbery'),
-         tags$li('Shoplifting'),
-         tags$li('Stolen Property (more valuable items)'),
-         tags$li('Vehicle Theft'),
-         tags$li('Violation of Court Order'),
-         tags$li('Warrant Arrest'),
-         tags$li('Lost Property')
-       ),
-       tags$p('Information on felony and misdemeanors is from', 
-              a('FindLaw', href="http://criminal.findlaw.com/criminal-law-basics/what-distinguishes-a-misdemeanor-from-a-felony.html"),
-              'for more information on each offense, visit the ',
-              a('Seattle PD Website', href = 'https://www.seattle.gov/police-manual'))     
-    )
-  ),
-  
   tabPanel("About the Project",
     tags$div(id='about',
              tags$p('For information about each type of crime, visit the "Learn More" tab.'),
@@ -224,7 +161,69 @@ my.ui <- navbarPage(theme = "styles.css",
                    If you would like to take a look at their code, please feel free to visit on', 
                    a('GitHub', href="https://github.com/TCTaba/Final-Project-AB3"))
           )
-    )
+    ),
+  tabPanel("Learn More",
+           tags$div(id="learn-more",
+                    tags$p('Here you will find a comprehensive list of the types of crimes that are listed in the map.'),
+                    tags$br(),
+                    tags$h3('Misdemeanors'),
+                    tags$p('Misdemeanors usually defined as a crime which is punishable by up to a year in jail time.'),
+                    tags$ul(
+                      tags$li('Animal Complaint'),
+                      tags$li('Assault'),
+                      tags$li('Bike Theft'),
+                      tags$li('Car Prowl'),
+                      tags$li('Counterfeit'),
+                      tags$li('Disorderly Conduct'),
+                      tags$li('Dispute'),
+                      tags$li('DUI (Driving Under the Influence)'),
+                      tags$li('Firework'),
+                      tags$li('Injury'),
+                      tags$li('Obstruct'),
+                      tags$li('Other Property'),
+                      tags$li('Pickpocket'),
+                      tags$li('Property Damage'),
+                      tags$li('Prostitution'),
+                      tags$li('Recovered Property'),
+                      tags$li('Stolen Property'),
+                      tags$li('Theft of Service'),
+                      tags$li('Threats'),
+                      tags$li('Traffic'),
+                      tags$li('Trespass')
+                    ),
+                    
+                    tags$br(),
+                    tags$h3('Felonies:'),
+                    tags$p('Felonies are the most serious types of crimes. They are usually defined by the fact 
+                           that they are punishable by prison sentences of greater than one year. Felonies are 
+                           usually crimes that are viewed severely by society, and include crimes such as murder, 
+                           rape, burglary, kidnapping, or arson.'),
+                    tags$ul(
+                      tags$li('Burglary'),
+                      tags$li('Burglary (Secure Parking Residence)'),
+                      tags$li('Eluding'),
+                      tags$li('Embezzle'),
+                      tags$li('Forgery'),
+                      tags$li('Fraud'),
+                      tags$li('Homicide'),
+                      tags$li('Mail Theft'),
+                      tags$li('Narcotics'),
+                      tags$li('Pornography'),
+                      tags$li('Reckless Burning'),
+                      tags$li('Robbery'),
+                      tags$li('Shoplifting'),
+                      tags$li('Stolen Property (more valuable items)'),
+                      tags$li('Vehicle Theft'),
+                      tags$li('Violation of Court Order'),
+                      tags$li('Warrant Arrest'),
+                      tags$li('Lost Property')
+                    ),
+                    tags$p('Information on felony and misdemeanors is from', 
+                           a('FindLaw', href="http://criminal.findlaw.com/criminal-law-basics/what-distinguishes-a-misdemeanor-from-a-felony.html"),
+                           'for more information on each offense, visit the ',
+                           a('Seattle PD Website', href = 'https://www.seattle.gov/police-manual'))     
+                    )
+  )
     
 )
 
