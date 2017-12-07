@@ -26,7 +26,16 @@ felonies <- c("BURGLARY", "BURGLARY-SECURE PARKING-RES", "ELUDING", "EMBEZZLE", 
 
 full.data <- GetSPDData()
 
+
 offense.types <- unique(full.data$offense_type)
+offense.names <- read.csv('scripts/offense_types.csv', stringsAsFactors = FALSE)
+
+GetExpandedName <- function(my.name) {
+  expanded.name <- offense.names %>% 
+    filter(name == my.name) %>%
+    select(expanded) 
+  return(expanded.name$expanded[1])
+}
 
 mis.data <- full.data %>%
   filter(summarized_offense_description %in% misdemeanors)
@@ -34,7 +43,8 @@ mis.data <- full.data %>%
 fel.data <- full.data %>%
   filter(summarized_offense_description %in% felonies)
 
-
-
+mis.data$expanded<-offense.names[match(mis.data$offense_type, offense.names$offense_type),2]
+fel.data$expanded<-offense.names[match(fel.data$offense_type, offense.names$offense_type),2]
+full.data$expanded<-offense.names[match(full.data$offense_type, offense.names$offense_type),2]
 
 

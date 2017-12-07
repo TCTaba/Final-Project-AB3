@@ -29,9 +29,6 @@ body {
 
 .tab-pane {
   padding: 0;
-}
-
-.tab-pane {
   color: #7d858f;
 }
 
@@ -93,4 +90,12 @@ body {
   overflow-y: scroll;
   overflow-x: scroll;
   max-height: 90%;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+  color: white;
+}
+
+#name {
+  text-align: center;
 }

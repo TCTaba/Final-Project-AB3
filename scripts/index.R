@@ -21,7 +21,7 @@ PlotDataAddress <- function(df, address_street, address_CSZ) {
          margin = list(l = 0, r = 0,
                        b = 0, t = 0,
                        pad = 0))%>%
-    add_markers(data = df, x = ~longitude, y = ~latitude, text=~summarized_offense_description,
+    add_markers(data = df, x = ~longitude, y = ~latitude, text=~expanded,
                 hoverinfo = "text", split=~summarized_offense_description) %>%
     add_markers(data = house.data, x = ~long, y = ~lat, text = ~paste(house.data$address, 
                                                                       paste("Zestimate (Zillow's Estimated Market Value):", house.data$price), 
@@ -44,7 +44,7 @@ PlotDataNeighborhood <- function(df, neighborhood) {
   p <- df %>%
     plot_mapbox(lat = ~latitude, lon = ~longitude,
                 split = ~summarized_offense_description,
-                mode = 'scattermapbox', text=~summarized_offense_description, hoverinfo = "text") %>%
+                mode = 'scattermapbox', text=~expanded, hoverinfo = "text") %>%
     layout(font = list(color='white'),
            plot_bgcolor = '#191A1A', paper_bgcolor = '#191A1A',
            autosize = TRUE, 

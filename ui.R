@@ -1,5 +1,6 @@
 library(shiny)
 library(plotly)
+library(dplyr)
 
 source("./scripts/spd_data.R")
 source("./scripts/api_keys.R")
@@ -14,6 +15,7 @@ my.ui <- navbarPage(theme = "styles.css",
   "Seattle Housing and Crime",
   
    tabPanel("About",
+     tags$p(id = "name", "Nanda Sundaresan | Rebecca Liu | Tyvon Tabadero | Tim Perng"),
      tags$p(id = "main-title", width = "100%", 'A' , strong('SAFER'), 'HOME'),
      tags$p(id = "main-descrip", width = "100%", 'This application provides an interactive tool that 
              maps homes for sale in the Seattle area, and all police report incidents 
@@ -41,7 +43,7 @@ my.ui <- navbarPage(theme = "styles.css",
          wellPanel(
            tags$h1('DATA'),
            tags$p('We are working with two datasets. The first dataset, collected by', a('the Seattle Police Department',href="https://data.seattle.gov/Public-Safety/Seattle-Police-Department-Police-Report-Incident/7ais-f98f"),
-                 'contains data on reported Seattle police incidents, updated every 15 minutes. 
+                 'contains data on reported Seattle police incidents, updated every 15 minutes. We decided to use data only from the last three months.
                  The second dataset, collected by', a('Zillow', href="https://www.zillow.com/howto/api/APIOverview.htm"), 
                  'contains property information for houses listed for sale, which is updated daily.')
          )
@@ -80,8 +82,7 @@ my.ui <- navbarPage(theme = "styles.css",
                         choices = list("Misdemeanor" = "mis",
                                        "Felony" = "fel",
                                        "Both" = "both"),
-                        width = "250px"),
-            tags$p('Neighborhood Average = $', parsed.regions$Zindex, sep = '')
+                        width = "250px")
           ),
        plotlyOutput("neighborhoodPlot", height = "100%"), padding = 0
        )
