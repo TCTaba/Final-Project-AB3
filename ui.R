@@ -1,5 +1,6 @@
 library(shiny)
 library(plotly)
+library(dplyr)
 
 source("./scripts/spd_data.R")
 source("./scripts/api_keys.R")
@@ -78,8 +79,7 @@ my.ui <- navbarPage(theme = "styles.css",
                         choices = list("Misdemeanor" = "mis",
                                        "Felony" = "fel",
                                        "Both" = "both"),
-                        width = "250px"),
-            tags$p('Neighborhood Average = $', parsed.regions$Zindex, sep = '')
+                        width = "250px")
           ),
        plotlyOutput("neighborhoodPlot", height = "100%"), padding = 0
        )
